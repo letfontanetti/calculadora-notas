@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h3>Calculadora de Notas/Média</h3>
+    </header>
+
+    <div id="pdiv">
+        <label for="nota1">1º nota</label>
+        <input id="nota1" type="number"> <br />
+
+        <label for="nota2">2º nota</label>
+        <input id="nota2" type="number"> <br />
+
+        <label for="nota3">3º nota</label>
+        <input id="nota3" type="number"> <br />
+
+        <label for="nota4">4º nota</label>
+        <input id="nota4" type="number"> <br />
+
+        <label for="nota5">5º nota</label>
+        <input id="nota5" type="number"> <br />
+        <div class="botao">
+            <button onclick="aritmetica()">Calcular Média Aritmética</button> <br> <br>
+        </div>
+    </div>
+
+    <div id="sdiv">
+        1º nota <input id="p_nota1" type="number">
+        Peso da 1º nota <input type="number" id="peso1"><br>
+        2º nota <input id="p_nota2" type="number">
+        Peso da 2º nota <input type="number" id="peso2">  <br>
+        3º nota <input id="p_nota3" type="number">
+        Peso da 3º nota <input type="number" id="peso3">  <br>
+        4º nota <input id="p_nota4" type="number">
+        Peso da 4º nota <input type="number" id="peso4">  <br>
+        5º nota <input id="p_nota5" type="number">
+        Peso da 5º nota <input type="number" id="peso5">  <br>
+
+        <div class="botao">
+            <button onclick="ponderada()">Calcular Média Ponderada</button>
+        </div>
+    </div>
+    
+    <script type="text/javascript">
+
+        function aritmetica(){
+            var nota1 = parseFloat(document.getElementById("nota1").value);
+            var nota2 = parseFloat(document.getElementById("nota2").value);
+            var nota3 = parseFloat(document.getElementById("nota3").value);
+            var nota4 = parseFloat(document.getElementById("nota4").value);
+            var nota5 = parseFloat(document.getElementById("nota5").value);
+
+            var media = (nota1 + nota2 + nota3 + nota4 + nota5)/5 ;
+
+            if(media >= 7)
+            if(media==10)
+                alert("Uau! Aprovado com exito!");
+            else
+                alert("Parabéns, aprovado! Média "+media);
+            else
+                alert("Reprovado! Média "+media)
+        }
+
+        function ponderada(){
+            var nota1 = parseFloat(document.getElementById("p_nota1").value);
+            var nota2 = parseFloat(document.getElementById("p_nota2").value);
+            var nota3 = parseFloat(document.getElementById("p_nota3").value);
+            var nota4 = parseFloat(document.getElementById("p_nota4").value);
+            var nota5 = parseFloat(document.getElementById("p_nota5").value);
+
+            var peso1 = parseFloat(document.getElementById("peso1").value);
+            var peso2 = parseFloat(document.getElementById("peso2").value);
+            var peso3 = parseFloat(document.getElementById("peso3").value);
+            var peso4 = parseFloat(document.getElementById("peso4").value);
+            var peso5 = parseFloat(document.getElementById("peso5").value);
+
+            var media = ((nota1 * peso1) + (nota2 * peso2) + (nota3 * peso3) + (nota4 * peso4) + (nota5 * peso5)) / (peso1 + peso2 + peso3 + peso4 + peso5);
+            
+
+            if(media == 10) {
+                alert("Uau! Aprovado com exito!");
+            } else {
+                if(media >= 7) {
+                    alert("Parabéns, aprovado! Média "+media);
+                } else {
+                    if(media >= 5) {
+                        alert("Você esta de exame! Média "+media);
+                    } else {
+                        alert("Reprovado! Média "+media)
+                    }
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>
